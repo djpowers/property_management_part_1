@@ -5,6 +5,7 @@ class Owner < ActiveRecord::Base
   validates_email_format_of :email
 
   has_many :buildings,
+    dependent: :nullify,
     inverse_of: :owner
 
   def full_name

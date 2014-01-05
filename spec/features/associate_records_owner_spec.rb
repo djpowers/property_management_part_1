@@ -18,6 +18,7 @@ feature 'associate records owner', %Q{
     fill_in 'First name', with: 'Butters'
     fill_in 'Last name', with: 'Stotch'
     fill_in 'Email', with: 'bstotch@propertygroup.com'
+    fill_in 'Company', with: 'Property Plus'
     click_button 'Create Owner'
 
     expect(page).to have_content 'Owner was successfully recorded.'

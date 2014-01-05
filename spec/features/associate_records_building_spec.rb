@@ -15,7 +15,6 @@ feature 'associate records building', %Q{
   # If I do not specify all of the required information in the required formats, the building is not recorded and I am presented with errors
   # Upon successfully creating a building, I am redirected so that I can record another building.
   # When recording a building, I want to optionally associate the building with its rightful owner.
-  # If I delete an owner, the owner and its primary key should no longer be associated with any properties.
 
   scenario 'create building with valid attributes' do
     owner = FactoryGirl.create(:owner)

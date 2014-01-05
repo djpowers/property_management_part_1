@@ -15,7 +15,7 @@ describe Owner do
   end
 
   describe 'associations' do
-    it { should have_many :buildings }
+    it { should have_many(:buildings).dependent(:nullify) }
   end
 
   describe 'database' do
