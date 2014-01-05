@@ -6,10 +6,12 @@ describe Owner do
 
   describe 'validations' do
     it { should have_valid(:first_name).when("Dave", "Stevie Ray") }
-    it { should_not have_valid(:first_name).when(:blanks) }
+    it { should_not have_valid(:first_name).when(*blanks) }
     it { should have_valid(:last_name).when("Smith", "Van Bree") }
-    it { should_not have_valid(:last_name).when(:blanks) }
-    it { should have_valid_email_format_of :email }
+    it { should_not have_valid(:last_name).when(*blanks) }
+    it { should have_valid(:email).when('dave@owning.com') }
+    it { should_not have_valid(:email).when('dave@', 'dave@owning') }
+    it { should_not have_valid(:email).when(*blanks) }
   end
 
   describe 'database' do
