@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rails-erd'
   gem 'simple_form'
   gem 'launchy'
+  gem 'validates_email_format_of'
 end
 
 group :development do
