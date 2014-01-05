@@ -18,11 +18,27 @@ feature 'associate records owner', %Q{
     fill_in 'First name', with: 'Butters'
     fill_in 'Last name', with: 'Stotch'
     fill_in 'Email', with: 'bstotch@propertygroup.com'
-    click_button 'Submit'
+    click_button 'Create Owner'
 
     expect(page).to have_content 'Owner was successfully recorded.'
   end
 
-  scenario 'fail to create owner and show errors with invalid attributes'
+  scenario 'fail to create owner and show errors with invalid attributes' do
+    visit new_owner_path
+    click_button 'Create Owner'
+
+    within '.input.owner_first_name' do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within '.input.owner_last_name' do
+      expect(page).to have_content("can't be blank")
+    end
+
+    within '.input.email' do
+      expect(page).to have_content("does not appear to be valid")
+    end
+
+  end
 
 end
