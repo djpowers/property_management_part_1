@@ -19,12 +19,17 @@ describe Building do
     it { should_not have_valid(:postal_code).when(*blanks) }
   end
 
+  describe 'associations' do
+    it { should belong_to :owner }
+  end
+
   describe 'database' do
     it { should have_db_column(:address).of_type(:string).with_options(null: false) }
     it { should have_db_column(:city).of_type(:string).with_options(null: false) }
     it { should have_db_column(:state).of_type(:string).with_options(null: false) }
     it { should have_db_column(:postal_code).of_type(:string).with_options(null: false) }
     it { should have_db_column(:description).of_type(:text) }
+    it { should have_db_column(:owner_id).of_type(:integer) }
   end
 
 end

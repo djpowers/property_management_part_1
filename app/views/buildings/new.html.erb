@@ -10,5 +10,6 @@
   <%= f.input :postal_code  %>
   <%= f.input :description  %>
   <%= f.button :submit %>
+  <%= f.input :owner, collection: Owner.all %>
 
 <% end %>
