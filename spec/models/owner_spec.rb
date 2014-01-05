@@ -14,6 +14,10 @@ describe Owner do
     it { should_not have_valid(:email).when(*blanks) }
   end
 
+  describe 'associations' do
+    it { should have_many :buildings }
+  end
+
   describe 'database' do
     it { should have_db_column(:first_name).of_type(:string).with_options(null: false) }
     it { should have_db_column(:last_name).of_type(:string).with_options(null: false) }

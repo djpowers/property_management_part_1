@@ -18,16 +18,20 @@ feature 'associate records building', %Q{
   # If I delete an owner, the owner and its primary key should no longer be associated with any properties.
 
   scenario 'create building with valid attributes' do
+    owner = FactoryGirl.create(:owner)
+    expect(owner.buildings.count).to eql(0)
+
     visit new_building_path
     fill_in 'Address', with: '123 Main Street'
     fill_in 'City', with: 'Boston'
     select 'Massachusetts', from: 'State'
     fill_in 'Postal code', with: '02116'
     fill_in 'Description', with: 'Very historic'
-    click_button 'Create Building'
     select 'Dave Smith', from: 'Owner'
+    click_button 'Create Building'
 
     expect(page).to have_content 'Building was successfully recorded.'
+    expect(owner.buildings.count).to eql(1)
   end
 
   scenario 'fail to create building and show errors with invalid attributes' do

@@ -9,7 +9,7 @@
   <%= f.input :state, collection: Building.us_states %>
   <%= f.input :postal_code  %>
   <%= f.input :description  %>
+  <%= f.input :owner_id, collection: Owner.all, label_method: :full_name, value_method: :id, include_blank: true %>
   <%= f.button :submit %>
-  <%= f.input :owner, collection: Owner.all %>
 
 <% end %>

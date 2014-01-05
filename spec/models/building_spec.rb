@@ -11,7 +11,8 @@ describe Building do
     it { should have_valid(:city).when('Boston', 'New Brunswick') }
     it { should_not have_valid(:city).when(*blanks) }
 
-    it { should have_valid(:state).when('Massachusetts', 'Connecticut') }
+    it { should have_valid(:state).when('MA', 'CT') }
+    it { should_not have_valid(:state).when('Massachusetts', 'Connecticut') }
     it { should_not have_valid(:state).when(*blanks) }
 
     it { should have_valid(:postal_code).when('02116') }

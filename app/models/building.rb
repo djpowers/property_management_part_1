@@ -3,6 +3,7 @@ class Building < ActiveRecord::Base
   validates_presence_of :address
   validates_presence_of :city
   validates_presence_of :state
+  validates_length_of :state, is: 2
   validates_length_of :postal_code, is: 5
 
   belongs_to :owner,
