@@ -1,0 +1,14 @@
+<h1>New Building</h1>
+
+<i><%= notice %></i><br>
+
+<%= simple_form_for(@building) do |f| %>
+
+  <%= f.input :address %>
+  <%= f.input :city  %>
+  <%= f.input :state, collection: Building.us_states %>
+  <%= f.input :postal_code  %>
+  <%= f.input :description  %>
+  <%= f.button :submit %>
+
+<% end %>

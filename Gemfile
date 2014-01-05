@@ -39,8 +39,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'valid_attribute'
   gem 'pry-rails'
-  gem 'validates_email_format_of'
   gem 'rails-erd'
+  gem 'simple_form'
+  gem 'launchy'
+end
+
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
